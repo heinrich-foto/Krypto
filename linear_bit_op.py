@@ -134,22 +134,26 @@ for j in range(int(math.pow(2, n))):
 	Y=list('11110000')
 
 	# Aufgabe A
-	exp_a = rotate(xor(X,Y),r)
-	exp_b = xor(rotate(X,r),rotate(Y,r))
+	# exp_a = rotate(xor(X,Y),r)
+	# exp_b = xor(rotate(X,r),rotate(Y,r))
+	exp_a = xor(rotate(X,r),rotate(xor(X,Y),r))
+	exp_b = rotate(Y,r)
 	if (exp_a==exp_b):
 		count_a += 1
 	#	print("A: ({0:3} xor {1:3}) << == ({0:3} <<) xor ({1:3} <<) \t {2:3}=={3:3}".format( int(''.join(X),2), int(''.join(Y),2), int(''.join(exp_a),2), int(''.join(exp_b),2)))
-	#	print("A: {0} {1} \t {2} \t {3}=={4}\t {5}".format(''.join(X), ''.join(Y),count_a,exp_a,exp_b,j))
+		print("A: {0} {1} \t {2} \t {3}=={4}\t {5}".format(''.join(X), ''.join(Y),count_a,exp_a,exp_b,j))
 	
 	#Aufgabe D
 	X=list(toBinary(j))
 	Y=list('10100101')
 
-	exp_a = rotate(sub(X,Y),r)
-	exp_b = sub(rotate(X,r),rotate(Y,r))
+	# exp_a = rotate(sub(X,Y),r)
+	# exp_b = sub(rotate(X,r),rotate(Y,r))
+	exp_a = sub(rotate(X,r),rotate(sub(X,Y),r))
+	exp_b = Y
 	if (exp_a==exp_b):
 		count_d += 1
-	#	print("D: {0} {1} \t {2} \t {3}=={4}\t {5}".format(''.join(X), ''.join(Y),count_d,exp_a,exp_b,j))
+		print("D: {0} {1} \t {2} \t {3}=={4}\t {5}".format(''.join(X), ''.join(Y),count_d,exp_a,exp_b,j))
 	#else:
 	#	print("D: {0} {1} \t {2} \t {3}!={4}\t {5}".format(''.join(X), ''.join(Y),count_a,exp_a,exp_b,j))
 	
@@ -159,12 +163,14 @@ for j in range(int(math.pow(2, n))):
 		X=list(toBinary(j))
 		Y=list(toBinary(i))
 
-		exp_a = add(Y,xor(X,Z))
-		exp_b = xor(add(X,Y),add(Z,Y))
+		# exp_a = add(Y,xor(X,Z))
+		# exp_b = xor(add(X,Y),add(Z,Y))
+		exp_a = xor(add(X,Y),add(xor(X,Z),Y))
+		exp_b = Y
 		if (exp_a==exp_b):
 			count_b += 1
 		#	print("B: ({0:3} xor {1:3}) add {4:2} == ({0:3} add {4:3}) xor ({1:3} add {4:3}) \t {2:3}=={3:3}".format( int(''.join(X),2), int(''.join(Z),2), int(''.join(exp_a),2), int(''.join(exp_b),2), int(''.join(Y),2)))
-		#	print("B: {0} {1} \t {2} \t {3}=={4}\t {5},{6}".format(''.join(X), ''.join(Y),count_b,exp_a,exp_b,j,i))
+			print("B: {0} {1} \t {2} \t {3}=={4}\t {5},{6}".format(''.join(X), ''.join(Y),count_b,exp_a,exp_b,j,i))
 		#else:
 		#	print("B: ({0:3} xor {1:3}) add {4:2} == ({0:3} add {4:3}) xor ({1:3} add {4:3}) \t {2:3}=={3:3}".format( int(''.join(X),2), int(''.join(Z),2), int(''.join(exp_a),2), int(''.join(exp_b),2), int(''.join(Y),2)))
 		#	print("B: {0} {1} \t {2} \t {3}!={4}\t {5},{6}".format(''.join(X), ''.join(Y),count_b,exp_a,exp_b,j,i))
@@ -174,11 +180,13 @@ for j in range(int(math.pow(2, n))):
 		X=list(toBinary(j))
 		Y=list(toBinary(i))
 
-		exp_a = add(Y,xor(X,Z))
-		exp_b = xor(add(X,Y),add(Z,Y))
+		# exp_a = add(Y,xor(X,Z))
+		# exp_b = xor(add(X,Y),add(Z,Y))
+		exp_a = xor(add(X,Y),add(xor(X,Z),Y))
+		exp_b = Y
 		if (exp_a==exp_b):
 			count_c += 1
-		#	print("C: {0} {1} \t {2} \t {3}=={4}\t {5},{6}".format(''.join(X), ''.join(Y),count_c,exp_a,exp_b,j,i))
+			print("C: {0} {1} \t {2} \t {3}=={4}\t {5},{6}".format(''.join(X), ''.join(Y),count_c,exp_a,exp_b,j,i))
 power_a = math.pow(2,n)
 power_b = math.pow(2,n)*power_a
 print("a) {0}\t b) {1}\t c) {2}\t d) {3}".format(count_a//power_a*100,count_b//power_b*100,count_c//power_b*100,count_d//power_a*100))
