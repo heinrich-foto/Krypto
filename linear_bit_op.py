@@ -74,39 +74,46 @@ count_d = 0
 
 Test_X = list(toBinary(10))
 Test_Y = list(toBinary(90))
-print(int(''.join(Test_X),2))
-print(int(''.join(Test_Y),2))
-print(int(''.join(map(str,add(Test_Y,Test_X))),2))
+print("  ",( int(''.join(Test_X),2)) )
+print("+ ",( int(''.join(Test_Y),2)) )
+print("  ",( int(''.join(map(str,add(Test_Y,Test_X))),2)) )
+print()
+
+Test_X = list(toBinary(250))
+Test_Y = list(toBinary(90))
+print("  ",( int(''.join(Test_X),2)) )
+print("+ ",( int(''.join(Test_Y),2)) )
+print("  ",( int(''.join(map(str,add(Test_Y,Test_X))),2)) )
 print()
 
 Test_X = list(toBinary(10))
 Test_Y = list(toBinary(4))
-print(int(''.join(Test_X),2))
-print(int(''.join(Test_Y),2))
-print(int(''.join(map(str,sub(Test_Y,Test_X))),2))
+print("  ",( int(''.join(Test_X),2)) )
+print("- ",( int(''.join(Test_Y),2)) )
+print("  ",( int(''.join(map(str,sub(Test_Y,Test_X))),2)) )
 print()
 
 Test_X = list(toBinary(127))
 Test_Y = list(toBinary(128))
-print(int(''.join(Test_X),2))
-print(int(''.join(Test_Y),2))
-print(int(''.join(map(str,sub(Test_Y,Test_X))),2))
+print("  ",( int(''.join(Test_X),2)) )
+print("- ",( int(''.join(Test_Y),2)) )
+print("  ",( int(''.join(map(str,sub(Test_Y,Test_X))),2)) )
 
-print(Test_X)
-print(Test_Y)
-print(sub(Test_Y,Test_X))
+print("  ",( Test_X) )
+print("- ",( Test_Y) )
+print("  ",( sub(Test_Y,Test_X)) )
 print()
 
 Test_Z=list(toBinary(112))
 print(int(''.join(Test_Z)))
-print(reverse(Test_Z))
+print(reverse(Test_Z)," reverse")
 
 
 Test_X = list(toBinary(128))
 Test_Y = list(toBinary(112))
-print(int(''.join(Test_X),2))
-print(int(''.join(Test_Y),2))
-print(int(''.join(map(str,xor(Test_Y,Test_X))),2))
+print("  ",( int(''.join(Test_X),2)) )
+print("x ",( int(''.join(Test_Y),2)) )
+print("  ",( int(''.join(map(str,xor(Test_Y,Test_X))),2)) )
 
 print(Test_X)
 print(Test_Y)
@@ -114,25 +121,25 @@ print(xor(Test_Y,Test_X))
 
 Test_X = list(toBinary(2))
 Test_Y = list('11110000')
-print(int(''.join(Test_X),2))
-print(Test_X)
-print(int(''.join(Test_Y),2))
-print(Test_Y)
-print(int(''.join(map(str,rotate(sub(Test_X,Test_Y),1))),2))
-print(Test_X)
-print(Test_Y)
-print(rotate(sub(Test_X,Test_Y),1))
+print("  ",( int(''.join(Test_X),2)) )
+print("  ",( Test_X ) )
+print("  ",( int(''.join(Test_Y),2)) )
+print("y ",Test_Y)
+print("<<(-(x,y) ",int(''.join(map(str,rotate(sub(Test_X,Test_Y),1))),2))
+print("x ",Test_X)
+print("y ",Test_Y)
+print("<<(-(x,y) ",rotate(sub(Test_X,Test_Y),1))
 
 print()
 Test_X = list(toBinary(253))
 Test_Y = list(toBinary(2))
-print(int(''.join(Test_X),2))
-print(Test_X)
-print(int(''.join(Test_Y),2))
-print(Test_Y)
-print(int(''.join(map(str,add(Test_X,Test_Y))),2))
+print("X  ",( int(''.join(Test_X),2)) )
+print("  ",( Test_X ) )
+print("Y  ",( int(''.join(Test_Y),2)) )
+print("Y ",Test_Y)
+print("+(X,Y) ",int(''.join(map(str,add(Test_X,Test_Y))),2))
 
-print(add(Test_X,Test_Y))
+print("+ ",add(Test_X,Test_Y))
 
 #exit() # tests
 
@@ -148,7 +155,7 @@ for j in range(int(math.pow(2, n))):
 	if (exp_a==exp_b):
 		count_a += 1
 	#	print("A: ({0:3} xor {1:3}) << == ({0:3} <<) xor ({1:3} <<) \t {2:3}=={3:3}".format( int(''.join(X),2), int(''.join(Y),2), int(''.join(exp_a),2), int(''.join(exp_b),2)))
-		print("A: {0} {1} \t {2} \t {3}=={4}\t {5}".format(''.join(X), ''.join(Y),count_a,exp_a,exp_b,j))
+	#	print("A: {0} {1} \t {2} \t {3}=={4}\t {5}".format(''.join(X), ''.join(Y),count_a,exp_a,exp_b,j))
 	
 	#Aufgabe D
 	X=list(toBinary(j))
@@ -160,7 +167,7 @@ for j in range(int(math.pow(2, n))):
 	exp_b = Y
 	if (exp_a==exp_b):
 		count_d += 1
-		print("D: {0} {1} \t {2} \t {3}=={4}\t {5}".format(''.join(X), ''.join(Y),count_d,exp_a,exp_b,j))
+	#	print("D: {0} {1} \t {2} \t {3}=={4}\t {5}".format(''.join(X), ''.join(Y),count_d,exp_a,exp_b,j))
 	#else:
 	#	print("D: {0} {1} \t {2} \t {3}!={4}\t {5}".format(''.join(X), ''.join(Y),count_a,exp_a,exp_b,j))
 	
@@ -177,7 +184,7 @@ for j in range(int(math.pow(2, n))):
 		if (exp_a==exp_b):
 			count_b += 1
 		#	print("B: ({0:3} xor {1:3}) add {4:2} == ({0:3} add {4:3}) xor ({1:3} add {4:3}) \t {2:3}=={3:3}".format( int(''.join(X),2), int(''.join(Z),2), int(''.join(exp_a),2), int(''.join(exp_b),2), int(''.join(Y),2)))
-			print("B: {0} {1} \t {2} \t {3}=={4}\t {5},{6}".format(''.join(X), ''.join(Y),count_b,exp_a,exp_b,j,i))
+		#	print("B: {0} {1} \t {2} \t {3}=={4}\t {5},{6}".format(''.join(X), ''.join(Y),count_b,exp_a,exp_b,j,i))
 		#else:
 		#	print("B: ({0:3} xor {1:3}) add {4:2} == ({0:3} add {4:3}) xor ({1:3} add {4:3}) \t {2:3}=={3:3}".format( int(''.join(X),2), int(''.join(Z),2), int(''.join(exp_a),2), int(''.join(exp_b),2), int(''.join(Y),2)))
 		#	print("B: {0} {1} \t {2} \t {3}!={4}\t {5},{6}".format(''.join(X), ''.join(Y),count_b,exp_a,exp_b,j,i))
@@ -193,8 +200,8 @@ for j in range(int(math.pow(2, n))):
 		exp_b = Z
 		if (exp_a==exp_b):
 			count_c += 1
-			print("C: {0} {1} \t {2} \t {3}=={4}\t {5},{6}".format(''.join(X), ''.join(Y),count_c,exp_a,exp_b,j,i))
+		#	print("C: {0} {1} \t {2} \t {3}=={4}\t {5},{6}".format(''.join(X), ''.join(Y),count_c,exp_a,exp_b,j,i))
 power_a = math.pow(2,n)
 power_b = math.pow(2,n)*power_a
-print("a) {0}\t b) {1}\t c) {2}\t d) {3}".format((count_a//power_a)*100,(count_b//power_b)*100,(count_c//power_b)*100,(count_d//power_a)*100))
-print("a) {0}\t b) {1}\t c) {2}\t d) {3}".format(count_a,count_b,count_c,count_d))
+print("a) {0:5}\t b) {1:5}\t c) {2:5}\t d) {3:5}".format((float(count_a)//power_a)*100,(float(count_b)//power_b)*100,(float(count_c)//power_b)*100,(float(count_d)//power_a)*100))
+print("a) {0:5}\t b) {1:5}\t c) {2:5}\t d) {3:5}".format(count_a,count_b,count_c,count_d))
