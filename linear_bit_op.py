@@ -12,8 +12,11 @@ def reverse(X):
 		else:
 			X[i]='0'
 	return list(''.join(map(str,X)))	# gibt wieder eine Liste aus char zurück.
+	# http://stackoverflow.com/questions/3590165/joining-list-has-integer-values-with-python
 
 def toBinary(n):
+# https://stackoverflow.com/questions/699866/python-int-to-binary/20643178#20643178
+#                                                Länge des jeweiligen Bit. zb 64 oder hier 8
     return ''.join(str(1 & int(n) >> i) for i in range(8)[::-1])
 
 def rotate(X,r):
@@ -64,6 +67,10 @@ count_a = 0
 count_b = 0
 count_c = 0
 count_d = 0
+# http://stackoverflow.com/questions/16133243/python-str-object-does-not-support-item-assignment-when-replacing-array-values
+# ''.join(List) --> String
+# http://www.tutorialspoint.com/python/python_strings.htm
+# für String zugriffe über Index etc...
 
 Test_X = list(toBinary(10))
 Test_Y = list(toBinary(90))
@@ -166,7 +173,7 @@ for j in range(int(math.pow(2, n))):
 		# exp_a = add(Y,xor(X,Z))
 		# exp_b = xor(add(X,Y),add(Z,Y))
 		exp_a = xor(add(X,Y),add(xor(X,Z),Y))
-		exp_b = Y
+		exp_b = Z
 		if (exp_a==exp_b):
 			count_b += 1
 		#	print("B: ({0:3} xor {1:3}) add {4:2} == ({0:3} add {4:3}) xor ({1:3} add {4:3}) \t {2:3}=={3:3}".format( int(''.join(X),2), int(''.join(Z),2), int(''.join(exp_a),2), int(''.join(exp_b),2), int(''.join(Y),2)))
@@ -183,11 +190,11 @@ for j in range(int(math.pow(2, n))):
 		# exp_a = add(Y,xor(X,Z))
 		# exp_b = xor(add(X,Y),add(Z,Y))
 		exp_a = xor(add(X,Y),add(xor(X,Z),Y))
-		exp_b = Y
+		exp_b = Z
 		if (exp_a==exp_b):
 			count_c += 1
 			print("C: {0} {1} \t {2} \t {3}=={4}\t {5},{6}".format(''.join(X), ''.join(Y),count_c,exp_a,exp_b,j,i))
 power_a = math.pow(2,n)
 power_b = math.pow(2,n)*power_a
-print("a) {0}\t b) {1}\t c) {2}\t d) {3}".format(count_a//power_a*100,count_b//power_b*100,count_c//power_b*100,count_d//power_a*100))
+print("a) {0}\t b) {1}\t c) {2}\t d) {3}".format((count_a//power_a)*100,(count_b//power_b)*100,(count_c//power_b)*100,(count_d//power_a)*100))
 print("a) {0}\t b) {1}\t c) {2}\t d) {3}".format(count_a,count_b,count_c,count_d))
