@@ -13,12 +13,12 @@ import re
  
 
 def rsa_mitm(n, e, c, b):
-	T = 2 ^ (a*l)
-	for (r in range(T)):
-		x[i] = (c / r ^ e ) mod n
-	for (s in range(T)):
-		if s ^e mod N == x_r:
-			return r*s mod n
+    T = 2 ^ (a*l)
+    for (r in range(T)):
+        x[i] = (c / r ^ e ) mod n
+    for (s in range(T)):
+        if s ^e mod N == x_r:
+            return r*s mod n
 
 def main(arguments):
  
