@@ -10,15 +10,25 @@ import os
 import sys
 import argparse
 import re
+import random, math
  
 
 def rsa_mitm(n, e, c, b):
-	T = 2 ^ (a*l)
-	for (r in range(T)):
-		x[i] = (c / r ^ e ) mod n
-	for (s in range(T)):
-		if s ^e mod N == x_r:
-			return r*s mod n
+    S = random.randint(pow(2,b)/2 , pow(2,b))
+    T = random.randint(pow(2,b)/2 , pow(2,b))
+    cs=[0]*S
+    print S
+    print T
+    print n
+    for s in range(S):
+        cs[s] = (c/(pow(s,e))) % n
+
+    for t in range(T):
+        for s in range(S):
+            if cs[s] == (pow(t,e)):
+                return s*t
+
+    return "Plaintext nicht gefunden"
 
 def main(arguments):
  
@@ -34,7 +44,7 @@ def main(arguments):
     n = int(''.join(re.findall("[-+]?\d+[\.]?\d*", args.n.read())))
     c = int(''.join(re.findall("[-+]?\d+[\.]?\d*", args.c.read())))
 
-    print rsa_mitm( n , e , c , b )
+    print rsa_mitm( n , args.e , c , args.b )
 
 
 if __name__ == '__main__':
