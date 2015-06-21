@@ -21,13 +21,13 @@ def rsa_mitm(n, e, c, b):
     print T
     print n
     for s in range(S):
-        cs[s] = (c/(pow(s,e))) % n
+        cs[s] = (c/(pow(s+1,e))) % n
 
     for t in range(T):
         for s in range(S):
-            if cs[s] == (pow(t,e)):
+            if cs[s] == (pow(t+1,e)):
                 return s*t
-
+    print cs
     return "Plaintext nicht gefunden"
 
 def main(arguments):
