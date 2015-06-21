@@ -1,4 +1,4 @@
-# Krypto
+# Krypto Uebung k.A.
 
 Es will noch nicht so wie ich es will...
 doof doof doof.
