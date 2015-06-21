@@ -10,18 +10,22 @@ import os
 import sys
 import argparse
 import re
-import random, math
+import random
+
+import gmpy2
  
 
 def rsa_mitm(n, e, c, b):
     S = random.randint(pow(2,b)/2 , pow(2,b))
     T = random.randint(pow(2,b)/2 , pow(2,b))
-    cs=[0]*S
+    n=gmpy2.mpz(n)
+    cs=[gmpy2.mpz()]*S
     print S
     print T
     print n
     for s in range(S):
-        cs[s] = (c/(pow(s+1,e))) % n
+        cs[s] = gmpy2.c_mod_2exp(gmpy2.div(c,(pow(s+1,e))) , n)
+        print (s,gmpy2.mpz(cs[s]))
 
     for t in range(T):
         for s in range(S):
@@ -41,8 +45,8 @@ def main(arguments):
  
     args = parser.parse_args(arguments)
 
-    n = int(''.join(re.findall("[-+]?\d+[\.]?\d*", args.n.read())))
-    c = int(''.join(re.findall("[-+]?\d+[\.]?\d*", args.c.read())))
+    n = gmpy2.mpz(''.join(re.findall("[-+]?\d+[\.]?\d*", args.n.read())))
+    c = gmpy2.mpz(''.join(re.findall("[-+]?\d+[\.]?\d*", args.c.read())))
 
     print rsa_mitm( n , args.e , c , args.b )
 
